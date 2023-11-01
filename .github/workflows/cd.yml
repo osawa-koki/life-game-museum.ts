@@ -35,7 +35,7 @@ jobs:
         key: node-modules-${{ env.node-version }}-${{ hashFiles('./**/package.json', './**/yarn.lock') }}
     - name: Install dependencies
       if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-      run: yarn install --frozen-lockfile --non-interactive
+      run: yarn install --frozen-lockfile --non-interactive --production
     - name: Lint
       run: yarn build
     - name: Upload artifact
