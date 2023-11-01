@@ -14,25 +14,25 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  node-version: 20
+
 jobs:
   build:
     runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [20]
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ env.node-version }}
     - name: Cache node_modules
       id: node_modules_cache_id
       uses: actions/cache@v3
       with:
-        path: ${{ env.npm-directory }}node_modules/
-        key: node-modules-${{ matrix.node-version }}-${{ hashFiles('./**/package.json', './**/yarn.lock') }}
+        path: ./node_modules/
+        key: node-modules-${{ env.node-version }}-${{ hashFiles('./**/package.json', './**/yarn.lock') }}
     - name: Install dependencies
       if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
       run: yarn install --frozen-lockfile --non-interactive
