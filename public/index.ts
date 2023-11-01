@@ -1,5 +1,5 @@
 import { ALIVE_COLOR, CELL_SIZE, DEAD_COLOR, GRID_COLOR } from './const.js'
-import { canvas, ctx } from './elements.js'
+import { canvas, ctx, playPauseButton } from './elements.js'
 import Universe from './universe.js'
 
 const universe = new Universe()
@@ -54,13 +54,41 @@ const getIndex = (row: number, column: number): number => {
   return row * width + column
 }
 
+let animationId: number | null = null
 const renderLoop = (): void => {
   universe.tick()
 
   drawGrid()
   drawCells()
 
-  requestAnimationFrame(renderLoop)
+  animationId = requestAnimationFrame(renderLoop)
 }
 
-renderLoop()
+const play = (): void => {
+  playPauseButton.textContent = '⏸'
+  renderLoop()
+}
+
+const pause = (): void => {
+  if (animationId === null) return
+  playPauseButton.textContent = '▶'
+  cancelAnimationFrame(animationId)
+  animationId = null
+}
+
+const isPaused = (): boolean => {
+  return animationId === null
+}
+
+playPauseButton.addEventListener('click', () => {
+  if (isPaused()) {
+    play()
+  } else {
+    pause()
+  }
+})
+
+drawGrid()
+drawCells()
+
+play()
