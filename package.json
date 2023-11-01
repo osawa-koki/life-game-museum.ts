@@ -1,0 +1,15 @@
+{
+  "name": "life-game-museum.ts",
+  "version": "1.0.0",
+  "description": "🎏🎏🎏 TypeScriptでライフゲームを実装してみる！",
+  "repository": "https://github.com/osawa-koki/life-game-museum.ts.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 20.0.0",
+    "yarn": ">= 1.22.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
