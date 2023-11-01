@@ -10,6 +10,15 @@
     "node": ">= 20.0.0",
     "yarn": ">= 1.22.0"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "build": "yarn build:ts",
+    "build:ts": "tsc",
+    "dev": "http-server -p 8080 -c-1 ./public/"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }
