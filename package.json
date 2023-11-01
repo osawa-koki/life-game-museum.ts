@@ -15,7 +15,8 @@
     "build:ts": "tsc",
     "dev": "http-server -p 8080 -c-1 ./public/",
     "lint": "eslint --ext .ts ./public/",
-    "lint:fix": "eslint --fix --ext .ts ./public/"
+    "lint:fix": "eslint --fix --ext .ts ./public/",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "typescript": "*"
