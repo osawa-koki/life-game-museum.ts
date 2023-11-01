@@ -1,3 +1,3 @@
-import { message } from "./module.js";
+import { message } from './module.js'
 
 console.log(message)
