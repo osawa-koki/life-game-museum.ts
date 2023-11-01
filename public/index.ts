@@ -1,6 +1,6 @@
-import { ALIVE_COLOR, CELL_SIZE, DEAD_COLOR, GRID_COLOR } from './const.js'
-import { canvas, ctx, playPauseButton } from './elements.js'
-import Universe from './universe.js'
+import { ALIVE_COLOR, CELL_SIZE, DEAD_COLOR, GRID_COLOR } from './const'
+import { canvas, ctx, playPauseButton } from './elements'
+import Universe from './universe'
 
 const universe = new Universe()
 const width = universe.width

@@ -11,8 +11,7 @@
     "yarn": ">= 1.22.0"
   },
   "scripts": {
-    "build": "yarn build:ts",
-    "build:ts": "tsc",
+    "build": "webpack --mode production",
     "dev": "http-server -p 8080 -c-1 ./public/",
     "lint": "eslint --ext .ts ./public/",
     "lint:fix": "eslint --fix --ext .ts ./public/",
@@ -28,6 +27,9 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "ts-loader": "^9.5.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }
